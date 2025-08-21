@@ -1,0 +1,224 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  max-width: 400px;
+  width: 100%;
+  // min-height: 609px;
+  padding: 40px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transition: transform $transition;
+
+  @include mq(tab) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__title {
+    margin-bottom: 12px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    color: $main-text-accent-color;
+    @include mq(desk) {
+      line-height: 1.15;
+    }
+  }
+  &__icon--close {
+    transition: fill $transition;
+    fill: $main-text-accent-color;
+  }
+}
+// кнопка закрыть
+.modal__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  transition: color $transition;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:focus,
+  &:hover {
+    color: $accent-color;
+  }
+}
+// применяется при видимости модального окна
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  &__title {
+    margin-bottom: 4px;
+
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    color: var(--text-color);
+  }
+  &__block {
+    position: relative;
+  }
+  &__text {
+    font-size: 12px;
+    line-height: 1.16;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: var(--text-color);
+
+    @include mq(mob) {
+      flex-direction: row;
+    }
+    @include mq(desk) {
+      font-size: 14px;
+      line-height: 1.71;
+    }
+  }
+  &__link {
+    margin-left: 4px;
+    text-decoration-line: underline;
+    color: $accent-color;
+    display: inline;
+  }
+  &__check {
+    margin-bottom: 20px;
+  }
+  &__checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.modal-form__input {
+  width: 100%;
+  height: 40px;
+  padding: 11px 12px 11px 42px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+
+  transition: border-color $transition;
+
+  &:focus {
+    border-color: $accent-color;
+  }
+}
+
+.modal-form__icon {
+  position: absolute;
+
+  top: 50%;
+  left: 12px;
+
+  transition: fill $transition;
+
+  transform: translateY(-50%);
+
+  .modal-form__input:focus + & {
+    fill: $accent-color;
+  }
+}
+
+.modal-form__input--texterea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  outline: none;
+  resize: none;
+  transition: border-color $transition;
+
+  &:focus {
+    border-color: $accent-color;
+  }
+  &::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+// .modal-form__icon--box {
+//   border-radius: 2px;
+
+//   .modal-form__checkbox:checked + & {
+//     fill: $accent-color;
+//     background-color: $accent-color;
+//   }
+// }
+// .modal-form__icon--check,
+// .modal-form__icon--box {
+//   position: absolute;
+//   top: -2px;
+//   left: 3px;
+//   width: 16px;
+//   height: 15px;
+
+//   @include mq(desk) {
+//     top: 3px;
+//   }
+// }
+.modal__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 48px;
+  padding: 10px;
+  margin: 0 auto;
+  color: $main-white-color;
+  background-color: $accent-color;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  outline-color: transparent;
+  transition: all 250ms linear;
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $accent-color;
+    border-color: $accent-color;
+  }
+  &:active {
+    color: $main-white-color;
+    background-color: $accent-color;
+    border: 2px solid transparent;
+  }
+}
