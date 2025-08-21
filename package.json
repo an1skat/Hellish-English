@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://AleksandrSherehkov.github.io/Hellish-English",
+  "homepage": "https://an1skat.github.io/Hellish-English",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Hellish-English-Teamwork/"
